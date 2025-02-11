@@ -116,7 +116,7 @@ The project uses TailwindCSS for styling, with a consistent design system:
 
 1. Clone the repository
 ```bash
-git clone [repository-url]
+git clone https://github.com/luizgringo/np-group-challenge.git
 ```
 
 2. Install dependencies
