@@ -3,7 +3,8 @@ import NoResults from './NoResults';
 import { BaseCard, TrendingCard } from './Cards';
 import { AssetModal } from '../AssetModal';
 import MockData from '../../data/MockData.json';
-import { Card, CardType, typeMap } from '../../types';
+import { Card, CardType } from '../../types';
+import { cardTypeMappingConst } from '../../constants/cardTypeMapping';
 
 interface BaseTabContentProps {
     type: CardType;
@@ -57,7 +58,7 @@ export function BaseTabContent({ type, title, description, searchTerm, useTrendi
             <AssetModal
                 isOpen={!!selectedCard}
                 onClose={() => setSelectedCard(null)}
-                type={typeMap[type]}
+                    type={cardTypeMappingConst[type]}
                 {...selectedCard || {
                     title: '',
                     description: '',

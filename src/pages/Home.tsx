@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import { Featured, KPI, Layouts, Storyboards, Trending, DataViz } from '../components/TabContents';
 import { SearchBar } from '../components';
+import { TabNavigation } from '../components';
 
 type TabType = 'featured' | 'kpi' | 'layouts' | 'storyboards' | 'dataviz';
 
@@ -16,6 +17,10 @@ export default function Home() {
         setSearchTerm('');
     };
 
+    const handleTabChange = (tab: string) => {
+        setActiveTab(tab as TabType);
+    };
+
     return (
         <div className="max-w-4xl mx-auto">
             <h1 className="text-5xl font-bold mb-4 text-center">Library</h1>
@@ -23,21 +28,7 @@ export default function Home() {
                 Browse to the assets needed to report and present analysis
             </p>
 
-            <div className="flex justify-between mb-8 bg-[#f1f4f8] p-2 rounded-lg">
-                {(['Featured', 'KPI', 'Layouts', 'Storyboards', 'Data Viz'] as const).map((tab) => (
-                    <button
-                        key={tab}
-                        onClick={() => setActiveTab(tab.toLowerCase().replace(' ', '') as TabType)}
-                        className={`flex-1 mx-1 px-6 py-2 rounded-lg transition-colors ${
-                            activeTab === tab.toLowerCase().replace(' ', '')
-                                ? 'bg-white text-black font-bold'
-                                : 'text-gray-600 hover:bg-gray-200 font-medium'
-                        }`}
-                    >
-                        {tab}
-                    </button>
-                ))}
-            </div>
+            <TabNavigation activeTab={activeTab} onTabChange={handleTabChange} />
 
             <div className="w-full mx-auto mb-8">
                 <SearchBar

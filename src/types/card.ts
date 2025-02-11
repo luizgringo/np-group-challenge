@@ -21,12 +21,3 @@ export interface CardTypeMapping {
     storyboardCards: 'storyboard';
     trendingCards: 'trending';
 }
-
-export const typeMap: CardTypeMapping = {
-    dataVizCards: 'dataviz',
-    featuredCards: 'featured',
-    kpiCards: 'kpi',
-    layoutCards: 'layouts',
-    storyboardCards: 'storyboard',
-    trendingCards: 'trending'
-} as const;

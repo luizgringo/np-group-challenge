@@ -1,5 +1,6 @@
 export { SearchBar } from './SearchBar';
 export { AssetModal } from './AssetModal';
+export { TabNavigation } from './TabNavigation';
 export { Featured } from './TabContents/Contents/Featured';
 export { KPI } from './TabContents/Contents/KPI';
 export { Layouts } from './TabContents/Contents/Layouts';
