@@ -1,6 +1,6 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
-import { DataVizPreview, LayoutPreview, KPIPreview } from './components';
+import { DataVizPreview, LayoutPreview, KPIPreview } from '.';
 
 type ReportType = 'featured' | 'kpi' | 'layouts' | 'storyboards' | 'trending' | 'dataviz';
 

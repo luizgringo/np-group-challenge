@@ -1,11 +1,11 @@
-import { Layout } from './theme/Layout';
-import { Home } from './pages';
+import MainLayout from './theme/MainLayout';
+import Home from './pages/Home';
 
 function App() {
     return (
-        <Layout>
+        <MainLayout>
             <Home />
-        </Layout>
+        </MainLayout>
     );
 }
 

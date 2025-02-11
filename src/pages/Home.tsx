@@ -1,10 +1,10 @@
 import { useState } from 'react';
-import { Featured, KPI, Layouts, Storyboards, Trending, DataViz } from '../../components/TabContents';
-import { SearchBar } from '../../components/SearchBar';
+import { Featured, KPI, Layouts, Storyboards, Trending, DataViz } from '../components/TabContents';
+import { SearchBar } from '../components';
 
 type TabType = 'featured' | 'kpi' | 'layouts' | 'storyboards' | 'dataviz';
 
-export function Home() {
+export default function Home() {
     const [searchTerm, setSearchTerm] = useState('');
     const [activeTab, setActiveTab] = useState<TabType>('featured');
 

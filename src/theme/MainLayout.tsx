@@ -5,7 +5,7 @@ interface BaseComponentProps {
     children?: ReactNode;
 } 
 
-export function Layout({ children }: BaseComponentProps) {
+export default function MainLayout({ children }: BaseComponentProps) {
     return (
         <div className="app">
             <main className="app-main">{children}</main>

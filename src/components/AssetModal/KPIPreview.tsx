@@ -1,4 +1,4 @@
-import MockData from '../../../data/MockData.json';
+import MockData from '../../data/MockData.json';
 
 export function KPIPreview() {
     return (
