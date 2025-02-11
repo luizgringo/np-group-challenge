@@ -14,7 +14,10 @@ export function SearchBar({ value, onChange, onClear, placeholder = 'Type to sea
                 stroke="currentColor"
                 viewBox="0 0 24 24"
                 xmlns="http://www.w3.org/2000/svg"
+                role="img"
+                aria-label="Search icon"
             >
+                <title>Search icon</title>
                 <path
                     strokeLinecap="round"
                     strokeLinejoin="round"
@@ -33,6 +36,7 @@ export function SearchBar({ value, onChange, onClear, placeholder = 'Type to sea
                 <button
                     onClick={onClear}
                     className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-gray-600 transition-colors"
+                    type="button"
                 >
                     <svg
                         className="w-5 h-5"
@@ -40,7 +44,10 @@ export function SearchBar({ value, onChange, onClear, placeholder = 'Type to sea
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
+                        role="img"
+                        aria-label="Clear search"
                     >
+                        <title>Clear search</title>
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"

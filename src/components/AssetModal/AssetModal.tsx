@@ -1,8 +1,7 @@
 import { AnimatePresence, motion } from 'framer-motion';
 import { useState } from 'react';
 import { DataVizPreview, LayoutPreview, KPIPreview } from '.';
-
-type ReportType = 'featured' | 'kpi' | 'layouts' | 'storyboards' | 'trending' | 'dataviz';
+import type { ReportType } from '../../types/report';
 
 interface AssetModalProps {
     isOpen: boolean;
@@ -15,11 +14,12 @@ interface AssetModalProps {
     used: number;
     contentType: string;
     pagesNumber: number;
-    type: 'dataviz' | 'kpi' | 'layouts' | 'storyboard' | 'featured' | 'trending';
+    type: ReportType;
 }
 
 export function AssetModal({ isOpen, onClose, title, description, longDescription, tags, lastUpdated, used, contentType, pagesNumber, type }: AssetModalProps) {
     const [copied, setCopied] = useState(false);
+    const [favorited, setFavorited] = useState(false);
 
     const getTypeLabel = (type: ReportType) => {
         const labels = {
@@ -37,6 +37,11 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
         navigator.clipboard.writeText(window.location.href);
         setCopied(true);
         setTimeout(() => setCopied(false), 2000);
+    };
+
+    const handleFavorite = () => {
+        setFavorited(true);
+        setTimeout(() => setFavorited(false), 2000);
     };
 
     const renderPreview = () => {
@@ -88,6 +93,7 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
                                         onClick={handleCopyLink}
                                         className="text-gray-400 hover:text-gray-600 transition-colors relative group"
                                         title="Copy link"
+                                        type="button"
                                     >
                                         {copied ? (
                                             <svg
@@ -96,7 +102,10 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg"
+                                                role="img"
+                                                aria-label="Link copied"
                                             >
+                                                <title>Link copied</title>
                                                 <path
                                                     strokeLinecap="round"
                                                     strokeLinejoin="round"
@@ -111,16 +120,19 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
                                                 stroke="currentColor"
                                                 viewBox="0 0 24 24"
                                                 xmlns="http://www.w3.org/2000/svg"
+                                                role="img"
+                                                aria-label="Copy link"
                                             >
+                                                <title>Copy link</title>
                                                 <path
                                                     strokeLinecap="round"
                                                     strokeLinejoin="round"
                                                     strokeWidth={2}
-                                                    d="M13.828 10.172a4 4 0 00-5.656 0l-4 4a4 4 0 105.656 5.656l1.102-1.101m-.758-4.899a4 4 0 005.656 0l4-4a4 4 0 00-5.656-5.656l-1.1 1.1"
+                                                    d="M8 5H6a2 2 0 00-2 2v12a2 2 0 002 2h10a2 2 0 002-2v-1M8 5a2 2 0 002 2h2a2 2 0 002-2M8 5a2 2 0 012-2h2a2 2 0 012 2m0 0h2a2 2 0 012 2v3m2 4H10m0 0l3-3m-3 3l3 3"
                                                 />
                                             </svg>
                                         )}
-                                        <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-800 text-white text-xs px-2 py-1 rounded opacity-0 group-hover:opacity-100 transition-opacity">
+                                        <span className="absolute -top-8 left-1/2 transform -translate-x-1/2 bg-gray-900 text-white text-xs py-1 px-2 rounded opacity-0 group-hover:opacity-100 transition-opacity">
                                             {copied ? 'Copied!' : 'Copy link'}
                                         </span>
                                     </button>
@@ -128,6 +140,7 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
                                         onClick={onClose}
                                         className="text-gray-400 hover:text-gray-600 transition-colors"
                                         title="Close"
+                                        type="button"
                                     >
                                         <svg
                                             className="w-5 h-5"
@@ -135,7 +148,10 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg"
+                                            role="img"
+                                            aria-label="Close modal"
                                         >
+                                            <title>Close modal</title>
                                             <path
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
@@ -156,12 +172,15 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
                                             stroke="currentColor"
                                             viewBox="0 0 24 24"
                                             xmlns="http://www.w3.org/2000/svg"
+                                            role="img"
+                                            aria-label="Asset icon"
                                         >
+                                            <title>Asset icon</title>
                                             <path
                                                 strokeLinecap="round"
                                                 strokeLinejoin="round"
                                                 strokeWidth={2}
-                                                d="M9 17v-2m3 2v-4m3 4v-6m2 10H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z"
+                                                d="M9 19v-6a2 2 0 00-2-2H5a2 2 0 00-2 2v6a2 2 0 002 2h2a2 2 0 002-2zm0 0V9a2 2 0 012-2h2a2 2 0 012 2v10m-6 0a2 2 0 002 2h2a2 2 0 002-2m0 0V5a2 2 0 012-2h2a2 2 0 012 2v14a2 2 0 01-2 2h-2a2 2 0 01-2-2z"
                                             />
                                         </svg>
                                     </div>
@@ -213,22 +232,47 @@ export function AssetModal({ isOpen, onClose, title, description, longDescriptio
 
                                 <button 
                                     className="w-full mt-6 py-3 px-4 bg-gray-600 hover:bg-gray-700 text-white transition-all duration-200 ease-in-out flex items-center justify-center gap-2 font-medium rounded-lg hover:shadow-md"
+                                    type="button"
+                                    onClick={handleFavorite}
                                 >
-                                    <svg
-                                        className="w-5 h-5"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                        xmlns="http://www.w3.org/2000/svg"
-                                    >
-                                        <path
-                                            strokeLinecap="round"
-                                            strokeLinejoin="round"
-                                            strokeWidth={2}
-                                            d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
-                                        />
-                                    </svg>
-                                    Add to favorites
+                                    {favorited ? (
+                                        <svg
+                                            className="w-5 h-5"
+                                            fill="currentColor"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            role="img"
+                                            aria-label="Favorited icon"
+                                        >
+                                            <title>Favorited icon</title>
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                                            />
+                                        </svg>
+                                    ) : (
+                                        <svg
+                                            className="w-5 h-5"
+                                            fill="none"
+                                            stroke="currentColor"
+                                            viewBox="0 0 24 24"
+                                            xmlns="http://www.w3.org/2000/svg"
+                                            role="img"
+                                            aria-label="Favorite Item icon"
+                                        >
+                                            <title>Favorite Item icon</title>
+                                            <path
+                                                strokeLinecap="round"
+                                                strokeLinejoin="round"
+                                                strokeWidth={2}
+                                                d="M5 5a2 2 0 012-2h10a2 2 0 012 2v16l-7-3.5L5 21V5z"
+                                            />
+                                        </svg>
+                                    )}
+                                    {favorited ? 'Favorited!' : 'Favorite Item'}
                                 </button>
                             </div>
                         </motion.div>

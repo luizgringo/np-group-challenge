@@ -12,9 +12,10 @@ interface BaseCardProps {
 
 export function BaseCard({ title, description, tags, lastUpdated, onClick }: BaseCardProps) {
     return (
-        <div 
+        <button 
             onClick={onClick}
-            className="bg-white rounded-lg shadow-sm p-6 border border-gray-100 transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer"
+            type="button"
+            className="w-full text-left bg-white rounded-lg shadow-sm p-6 border border-gray-100 transition-all duration-200 ease-in-out hover:shadow-lg hover:scale-[1.02] cursor-pointer"
         >
             <div className="flex gap-6">
                 <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg">
@@ -24,7 +25,10 @@ export function BaseCard({ title, description, tags, lastUpdated, onClick }: Bas
                         stroke="currentColor"
                         viewBox="0 0 24 24"
                         xmlns="http://www.w3.org/2000/svg"
+                        role="img"
+                        aria-label="Card icon"
                     >
+                        <title>Card icon</title>
                         <path
                             strokeLinecap="round"
                             strokeLinejoin="round"
@@ -51,6 +55,6 @@ export function BaseCard({ title, description, tags, lastUpdated, onClick }: Bas
                     </div>
                 </div>
             </div>
-        </div>
+        </button>
     );
 } 

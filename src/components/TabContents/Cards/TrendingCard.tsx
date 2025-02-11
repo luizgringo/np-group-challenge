@@ -11,9 +11,10 @@ interface TrendingCardProps {
 
 export function TrendingCard({ title, description, tags, lastUpdated, onClick }: TrendingCardProps) {
     return (
-        <div 
+        <button 
             onClick={onClick}
-            className="flex gap-6 p-6 cursor-pointer transition-all duration-200 ease-in-out hover:bg-gray-50 hover:shadow-lg hover:scale-[1.02] rounded-lg"
+            type="button"
+            className="w-full text-left flex gap-6 p-6 cursor-pointer transition-all duration-200 ease-in-out hover:bg-gray-50 hover:shadow-lg hover:scale-[1.02] rounded-lg"
         >
             <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg">
                 <svg
@@ -22,7 +23,10 @@ export function TrendingCard({ title, description, tags, lastUpdated, onClick }:
                     stroke="currentColor"
                     viewBox="0 0 24 24"
                     xmlns="http://www.w3.org/2000/svg"
+                    role="img"
+                    aria-label="Trending icon"
                 >
+                    <title>Trending icon</title>
                     <path
                         strokeLinecap="round"
                         strokeLinejoin="round"
@@ -48,6 +52,6 @@ export function TrendingCard({ title, description, tags, lastUpdated, onClick }:
                     <p className="text-sm text-gray-400">{lastUpdated}</p>
                 </div>
             </div>
-        </div>
+        </button>
     );
 } 

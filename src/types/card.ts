@@ -1,8 +1,8 @@
-import { MockData } from './mock';
+import type CardsMockData from '../data/CardsMockData.json';
 
-export type CardType = Exclude<keyof typeof MockData, 'kpiQuestions'>;
+export type CardType = keyof typeof CardsMockData;
 
-export interface Card {
+export type BaseCard = {
     title: string;
     description: string;
     longDescription: string;
@@ -11,13 +11,15 @@ export interface Card {
     contentType: string;
     used: number;
     pagesNumber: number;
-}
+};
+
+export type Card = BaseCard;
 
 export interface CardTypeMapping {
     dataVizCards: 'dataviz';
     featuredCards: 'featured';
     kpiCards: 'kpi';
     layoutCards: 'layouts';
-    storyboardCards: 'storyboard';
+    storyboardCards: 'storyboards';
     trendingCards: 'trending';
 }

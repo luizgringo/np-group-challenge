@@ -1,4 +1,4 @@
-import { ReactNode } from "react";
+import type { ReactNode } from "react";
 
 interface BaseComponentProps {
     className?: string;
@@ -10,7 +10,7 @@ export default function MainLayout({ children }: BaseComponentProps) {
         <div className="app">
             <main className="app-main">{children}</main>
             <footer className="app-footer">
-                <p>© {new Date().getFullYear()} NP Group Challenge. Todos os direitos reservados.</p>
+                <p>© {new Date().getFullYear()} NP Group Challenge. All rights reserved.</p>
             </footer>
         </div>
     );

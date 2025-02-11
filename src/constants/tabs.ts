@@ -1,3 +1,3 @@
-export const TABS = ['Featured', 'KPI', 'Layouts', 'Storyboards', 'Data Viz'] as const;
+export const TABS = ['Featured', 'KPI', 'Layouts', 'Storyboards', 'DataViz'] as const;
 
-export type TabType = Lowercase<(typeof TABS)[number]> | 'dataviz'; 
+export type TabType = Lowercase<(typeof TABS)[number]>; 

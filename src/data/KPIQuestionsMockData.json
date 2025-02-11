@@ -1,0 +1,36 @@
+{
+    "kpiQuestions": [
+        {
+            "id": 1,
+            "question": "What is the current conversion rate compared to the same period last year?"
+        },
+        {
+            "id": 2,
+            "question": "What are the main factors impacting customer churn rate?"
+        },
+        {
+            "id": 3,
+            "question": "How does the average ticket vary across different customer segments?"
+        },
+        {
+            "id": 4,
+            "question": "What is the ROI of marketing campaigns by acquisition channel?"
+        },
+        {
+            "id": 5,
+            "question": "What is the employee satisfaction trend over the last 12 months?"
+        },
+        {
+            "id": 6,
+            "question": "How does our product adoption rate compare to industry benchmarks?"
+        },
+        {
+            "id": 7,
+            "question": "What is the impact of pricing changes on customer retention?"
+        },
+        {
+            "id": 8,
+            "question": "How effective are our customer support channels in resolving issues?"
+        }
+    ]
+} 

@@ -2,9 +2,9 @@ import { useState } from 'react';
 import NoResults from './NoResults';
 import { BaseCard, TrendingCard } from './Cards';
 import { AssetModal } from '../AssetModal';
-import MockData from '../../data/MockData.json';
-import { Card, CardType } from '../../types/card';
-import { ModalType } from '../../types/modal';
+import CardsMockData from '../../data/CardsMockData.json';
+import type { Card, CardType } from '../../types/card';
+import type { ModalType } from '../../types/modal';
 
 interface BaseTabContentProps {
     type: CardType;
@@ -17,7 +17,7 @@ interface BaseTabContentProps {
 export function BaseTabContent({ type, title, description, searchTerm, useTrendingCard = false }: BaseTabContentProps) {
     const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
-    const cards = MockData[type] as Card[];
+    const cards = CardsMockData[type] as Card[];
     const CardComponent = useTrendingCard ? TrendingCard : BaseCard;
 
     const getModalType = (type: CardType): ModalType => {
@@ -26,7 +26,7 @@ export function BaseTabContent({ type, title, description, searchTerm, useTrendi
             featuredCards: 'featured',
             kpiCards: 'kpi',
             layoutCards: 'layouts',
-            storyboardCards: 'storyboard',
+            storyboardCards: 'storyboards',
             trendingCards: 'trending'
         };
         return modalTypeMap[type];
@@ -58,9 +58,9 @@ export function BaseTabContent({ type, title, description, searchTerm, useTrendi
                 <p className="text-gray-500">{description}</p>
             </div>
             <div className={`grid grid-cols-2 gap-${useTrendingCard ? '4' : '6'}`}>
-                {filteredCards.map((card: Card, index: number) => (
+                {filteredCards.map((card: Card) => (
                     <CardComponent 
-                        key={index} 
+                        key={`${card.title}-${card.lastUpdated}`}
                         {...card} 
                         onClick={() => setSelectedCard(card)}
                     />

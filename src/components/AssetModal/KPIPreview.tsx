@@ -1,11 +1,13 @@
-import MockData from '../../data/MockData.json';
+import KPIQuestionsMockData from '../../data/KPIQuestionsMockData.json';
+
+const questions = KPIQuestionsMockData.kpiQuestions;
 
 export function KPIPreview() {
     return (
         <div className="mb-6 p-4 bg-gray-50 rounded-lg">
             <h3 className="text-sm font-medium text-gray-600 mb-4">Business Questions</h3>
             <div className="grid grid-cols-2 gap-3">
-                {MockData.kpiQuestions.map((item) => (
+                {questions.map((item) => (
                     <div 
                         key={item.id}
                         className="bg-white p-4 rounded-lg shadow-sm border border-gray-100 hover:shadow-md transition-shadow"

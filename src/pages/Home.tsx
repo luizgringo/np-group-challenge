@@ -18,7 +18,7 @@ export default function Home() {
     };
 
     const handleTabChange = (tab: string) => {
-        setActiveTab(tab as TabType);
+        setActiveTab(tab.toLowerCase().replace(' ', '') as TabType);
     };
 
     return (

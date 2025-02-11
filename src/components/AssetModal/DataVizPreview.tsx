@@ -1,18 +1,35 @@
-import { useEffect, useRef } from 'react';
+import { useEffect, useRef, useState } from 'react';
 import * as d3 from 'd3';
 
-const sampleData = [
-    { name: 'Jan', value: 4000 },
-    { name: 'Feb', value: 3000 },
-    { name: 'Mar', value: 2000 },
-    { name: 'Apr', value: 2780 },
-    { name: 'May', value: 1890 },
-    { name: 'Jun', value: 2390 },
-    { name: 'Jul', value: 3490 }
-];
+interface DataPoint {
+    name: string;
+    value: number;
+}
 
-export function DataVizPreview() {
+interface DataVizPreviewProps {
+    title?: string;
+}
+
+const generateRandomData = (points = 7): DataPoint[] => {
+    const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
+    return Array.from({ length: points }, (_, i) => ({
+        name: months[i % 12],
+        value: Math.floor(Math.random() * 5000) + 1000
+    }));
+};
+
+export function DataVizPreview({ title = 'Chart Preview' }: DataVizPreviewProps) {
     const svgRef = useRef<SVGSVGElement>(null);
+    const [data, setData] = useState<DataPoint[]>(generateRandomData());
+    const [chartType, setChartType] = useState<'line' | 'bar'>('line');
+
+    const regenerateData = () => {
+        setData(generateRandomData());
+    };
+
+    const toggleChartType = () => {
+        setChartType(prev => prev === 'line' ? 'bar' : 'line');
+    };
 
     useEffect(() => {
         if (!svgRef.current) return;
@@ -27,18 +44,16 @@ export function DataVizPreview() {
             .append('g')
             .attr('transform', `translate(${margin.left},${margin.top})`);
 
-        const x = d3.scalePoint()
-            .domain(sampleData.map(d => d.name))
-            .range([0, width]);
+        const x = d3.scaleBand()
+            .domain(data.map(d => d.name))
+            .range([0, width])
+            .padding(0.1);
 
         const y = d3.scaleLinear()
-            .domain([0, d3.max(sampleData, d => d.value) || 0])
+            .domain([0, d3.max(data, d => d.value) || 0])
             .range([height, 0]);
 
-        const line = d3.line<typeof sampleData[0]>()
-            .x(d => x(d.name) || 0)
-            .y(d => y(d.value));
-
+        // Grid lines
         svg.append('g')
             .attr('class', 'grid')
             .attr('transform', `translate(0,${height})`)
@@ -60,6 +75,7 @@ export function DataVizPreview() {
             .style('stroke-dasharray', '3,3')
             .style('stroke-opacity', 0.2);
 
+        // Axes
         svg.append('g')
             .attr('transform', `translate(0,${height})`)
             .call(d3.axisBottom(x))
@@ -69,52 +85,111 @@ export function DataVizPreview() {
             .call(d3.axisLeft(y))
             .style('color', '#6B7280');
 
-        svg.append('path')
-            .datum(sampleData)
-            .attr('fill', 'none')
-            .attr('stroke', '#6B7280')
-            .attr('stroke-width', 2)
-            .attr('d', line);
+        if (chartType === 'line') {
+            // Line chart
+            const line = d3.line<DataPoint>()
+                .x(d => (x(d.name) || 0) + x.bandwidth() / 2)
+                .y(d => y(d.value));
 
-        svg.selectAll('circle')
-            .data(sampleData)
-            .enter()
-            .append('circle')
-            .attr('cx', d => x(d.name) || 0)
-            .attr('cy', d => y(d.value))
-            .attr('r', 4)
-            .attr('fill', '#6B7280')
-            .on('mouseover', function(event, d) {
-                d3.select(this)
-                    .transition()
-                    .duration(200)
-                    .attr('r', 6)
-                    .attr('fill', '#4B5563');
+            svg.append('path')
+                .datum(data)
+                .attr('fill', 'none')
+                .attr('stroke', '#6B7280')
+                .attr('stroke-width', 2)
+                .attr('d', line);
 
-                // Tooltip
-                svg.append('text')
-                    .attr('class', 'tooltip')
-                    .attr('x', x(d.name) || 0)
-                    .attr('y', y(d.value) - 10)
-                    .attr('text-anchor', 'middle')
-                    .style('font-size', '12px')
-                    .style('fill', '#4B5563')
-                    .text(d.value);
-            })
-            .on('mouseout', function() {
-                d3.select(this)
-                    .transition()
-                    .duration(200)
-                    .attr('r', 4)
-                    .attr('fill', '#6B7280');
+            // Points
+            svg.selectAll('circle')
+                .data(data)
+                .enter()
+                .append('circle')
+                .attr('cx', d => (x(d.name) || 0) + x.bandwidth() / 2)
+                .attr('cy', d => y(d.value))
+                .attr('r', 4)
+                .attr('fill', '#6B7280')
+                .on('mouseover', function(event, d) {
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .attr('r', 6)
+                        .attr('fill', '#4B5563');
 
-                svg.selectAll('.tooltip').remove();
-            });
-    }, []);
+                    svg.append('text')
+                        .attr('class', 'tooltip')
+                        .attr('x', (x(d.name) || 0) + x.bandwidth() / 2)
+                        .attr('y', y(d.value) - 10)
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '12px')
+                        .style('fill', '#4B5563')
+                        .text(d.value);
+                })
+                .on('mouseout', function() {
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .attr('r', 4)
+                        .attr('fill', '#6B7280');
+
+                    svg.selectAll('.tooltip').remove();
+                });
+        } else {
+            // Bar chart
+            svg.selectAll('rect')
+                .data(data)
+                .enter()
+                .append('rect')
+                .attr('x', d => x(d.name) || 0)
+                .attr('y', d => y(d.value))
+                .attr('width', x.bandwidth())
+                .attr('height', d => height - y(d.value))
+                .attr('fill', '#6B7280')
+                .on('mouseover', function(event, d) {
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .attr('fill', '#4B5563');
+
+                    svg.append('text')
+                        .attr('class', 'tooltip')
+                        .attr('x', (x(d.name) || 0) + x.bandwidth() / 2)
+                        .attr('y', y(d.value) - 10)
+                        .attr('text-anchor', 'middle')
+                        .style('font-size', '12px')
+                        .style('fill', '#4B5563')
+                        .text(d.value);
+                })
+                .on('mouseout', function() {
+                    d3.select(this)
+                        .transition()
+                        .duration(200)
+                        .attr('fill', '#6B7280');
+
+                    svg.selectAll('.tooltip').remove();
+                });
+        }
+    }, [data, chartType]);
 
     return (
         <div className="mb-6 p-4 bg-gray-50 rounded-lg">
-            <h3 className="text-sm font-medium text-gray-600 mb-4">Chart Preview</h3>
+            <div className="flex items-center justify-between mb-4">
+                <h3 className="text-sm font-medium text-gray-600">{title}</h3>
+                <div className="flex gap-2">
+                    <button
+                        onClick={toggleChartType}
+                        className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                        type="button"
+                    >
+                        {chartType === 'line' ? 'Change to Bars' : 'Change to Line'}
+                    </button>
+                    <button
+                        onClick={regenerateData}
+                        className="px-3 py-1 text-sm bg-white border border-gray-200 rounded-md hover:bg-gray-50 transition-colors"
+                        type="button"
+                    >
+                        Generate New Data
+                    </button>
+                </div>
+            </div>
             <div className="h-64">
                 <svg
                     ref={svgRef}

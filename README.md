@@ -1,52 +1,176 @@
-# React + TypeScript + Vite
+# NP Group Challenge - Visualization Library
 
-test
+This project is a modern library of visualizations and templates, developed with React, TypeScript, and Vite. The application provides an intuitive interface to explore and manage different types of visualizations, dashboards, and templates.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+## 🚀 Technologies Used
 
-Currently, two official plugins are available:
+- **React 19.0.0**: JavaScript framework for building the interface
+- **TypeScript**: JavaScript superset for adding static typing
+- **Vite**: Build tool and dev server
+- **TailwindCSS**: CSS framework for styling
+- **Framer Motion**: Library for animations
+- **D3.js**: Library for creating data visualizations
+- **Biome**: Linter and formatter
+- **pnpm**: Package manager
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+## 📁 Project Structure
 
-## Expanding the ESLint configuration
-
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
-
-- Configure the top-level `parserOptions` property like this:
-
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+```
+src/
+├── components/           # Reusable React components
+│   ├── AssetModal/      # Modal for detailed asset display
+│   ├── TabContents/     # Content for different tabs
+│   │   ├── Cards/       # Card components
+│   │   └── Contents/    # Type-specific content
+│   ├── SearchBar.tsx    # Search component
+│   └── TabNavigation.tsx # Tab navigation
+├── data/                # Mock data for the application
+│   ├── CardsMockData.json
+│   └── KPIQuestionsMockData.json
+├── pages/              # Application pages
+│   └── Home.tsx       # Main page
+├── styles/            # Global styles
+│   └── index.css     # Tailwind and custom styles
+├── theme/             # Theme components
+│   └── MainLayout.tsx # Main layout
+├── types/             # TypeScript type definitions
+└── main.tsx          # Application entry point
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+## 🎯 Main Features
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
+1. **Category Navigation**
+   - Featured
+   - KPI
+   - Layouts
+   - Storyboards
+   - DataViz
+   - Trending
 
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+2. **Search and Filters**
+   - Real-time search
+   - Tag filtering
+   - Dynamic results
+
+3. **Asset Visualization**
+   - Informative cards
+   - Detailed modal
+   - Interactive preview
+   - Usage metrics
+
+4. **Interactivity**
+   - Smooth animations
+   - Visual feedback
+   - Keyboard navigation
+   - Accessibility
+
+## 🏗️ Architecture
+
+### Components
+
+- **BaseCard**: Base component for card display
+- **TrendingCard**: Specialized variation of BaseCard
+- **AssetModal**: Modal for detailed display
+- **DataVizPreview**: Interactive data visualization
+- **SearchBar**: Search component
+- **TabNavigation**: Category navigation
+
+### Data Types
+
+```typescript
+// Main card types
+type CardType = 'dataVizCards' | 'featuredCards' | 'kpiCards' | 
+               'layoutCards' | 'storyboardCards' | 'trendingCards';
+
+// Base card structure
+interface BaseCard {
+    title: string;
+    description: string;
+    longDescription: string;
+    tags: string[];
+    lastUpdated: string;
+    contentType: string;
+    used: number;
+    pagesNumber: number;
+}
 ```
+
+## 🎨 Styling
+
+The project uses TailwindCSS for styling, with a consistent design system:
+
+- **Colors**: Professional grayscale palette
+- **Typography**: Modern and readable system
+- **Spacing**: Consistent spacing system
+- **Components**: Componentized and reusable design
+- **Responsiveness**: Adaptive layout for different screens
+
+## 🚦 Quality Control
+
+- **TypeScript**: Static typing for error prevention
+- **Biome**: Code linting and formatting
+- **Accessibility**: ARIA labels and roles implementation
+- **Componentization**: Well-defined reusable components
+
+## 🛠️ How to Run
+
+1. Clone the repository
+```bash
+git clone [repository-url]
+```
+
+2. Install dependencies
+```bash
+pnpm install
+```
+
+3. Run in development mode
+```bash
+pnpm dev
+```
+
+4. Build for production
+```bash
+pnpm build
+```
+
+5. Lint code
+```bash
+pnpm lint
+```
+
+## 📈 Performance
+
+The project has been optimized for performance through:
+
+- Automatic code splitting
+- Component lazy loading
+- Import optimization
+- Asset minification
+- Efficient caching
+
+## 🔒 Best Practices
+
+- Clean and well-documented code
+- Reusable components
+- Strong typing with TypeScript
+- Modern React patterns
+- Accessibility as a priority
+- Automated testing (to be implemented)
+
+## 🔄 Development Cycle
+
+1. **Local Development**
+   - Hot Module Replacement
+   - Real-time TypeScript
+   - Automatic linting
+
+2. **Code Quality**
+   - Biome for linting
+   - TypeScript for type checking
+   - Consistent formatting
+
+3. **Build and Deploy**
+   - Optimized Vite build
+   - Minified assets
+   - Clean and organized code

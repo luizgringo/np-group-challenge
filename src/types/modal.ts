@@ -1,1 +1,1 @@
-export type ModalType = 'dataviz' | 'featured' | 'kpi' | 'layouts' | 'storyboard' | 'trending';
+export type ModalType = 'dataviz' | 'featured' | 'kpi' | 'layouts' | 'storyboards' | 'trending';
