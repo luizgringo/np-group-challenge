@@ -13,7 +13,7 @@ export function TrendingCard({ title, description, tags, lastUpdated, onClick }:
     return (
         <div 
             onClick={onClick}
-            className="flex gap-6 p-6 cursor-pointer transition-all duration-200 ease-in-out hover:bg-gray-50 rounded-lg"
+            className="flex gap-6 p-6 cursor-pointer transition-all duration-200 ease-in-out hover:bg-gray-50 hover:shadow-lg hover:scale-[1.02] rounded-lg"
         >
             <div className="w-24 h-24 flex-shrink-0 flex items-center justify-center bg-gray-50 rounded-lg">
                 <svg

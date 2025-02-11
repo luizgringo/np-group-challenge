@@ -3,8 +3,8 @@ import NoResults from './NoResults';
 import { BaseCard, TrendingCard } from './Cards';
 import { AssetModal } from '../AssetModal';
 import MockData from '../../data/MockData.json';
-import { Card, CardType } from '../../types';
-import { cardTypeMappingConst } from '../../constants/cardTypeMapping';
+import { Card, CardType } from '../../types/card';
+import { ModalType } from '../../types/modal';
 
 interface BaseTabContentProps {
     type: CardType;
@@ -17,14 +17,26 @@ interface BaseTabContentProps {
 export function BaseTabContent({ type, title, description, searchTerm, useTrendingCard = false }: BaseTabContentProps) {
     const [selectedCard, setSelectedCard] = useState<Card | null>(null);
 
-    const cards = MockData[type as keyof typeof MockData] as Card[];
+    const cards = MockData[type] as Card[];
     const CardComponent = useTrendingCard ? TrendingCard : BaseCard;
 
+    const getModalType = (type: CardType): ModalType => {
+        const modalTypeMap: Record<CardType, ModalType> = {
+            dataVizCards: 'dataviz',
+            featuredCards: 'featured',
+            kpiCards: 'kpi',
+            layoutCards: 'layouts',
+            storyboardCards: 'storyboard',
+            trendingCards: 'trending'
+        };
+        return modalTypeMap[type];
+    };
+
     const filteredCards = cards.filter(
-        (card) =>
+        (card: Card) =>
             card.title.toLowerCase().includes(searchTerm.toLowerCase()) ||
             card.description.toLowerCase().includes(searchTerm.toLowerCase()) ||
-            card.tags.some((tag) =>
+            card.tags.some((tag: string) =>
                 tag.toLowerCase().includes(searchTerm.toLowerCase())
             )
     );
@@ -46,7 +58,7 @@ export function BaseTabContent({ type, title, description, searchTerm, useTrendi
                 <p className="text-gray-500">{description}</p>
             </div>
             <div className={`grid grid-cols-2 gap-${useTrendingCard ? '4' : '6'}`}>
-                {filteredCards.map((card, index) => (
+                {filteredCards.map((card: Card, index: number) => (
                     <CardComponent 
                         key={index} 
                         {...card} 
@@ -58,7 +70,7 @@ export function BaseTabContent({ type, title, description, searchTerm, useTrendi
             <AssetModal
                 isOpen={!!selectedCard}
                 onClose={() => setSelectedCard(null)}
-                    type={cardTypeMappingConst[type]}
+                type={getModalType(type)}
                 {...selectedCard || {
                     title: '',
                     description: '',
