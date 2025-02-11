@@ -1,0 +1,348 @@
+{
+    "dataVizCards": [
+        {
+            "title": "Time Series Visualization",
+            "description": "Charts and data analysis over time",
+            "longDescription": "Comprehensive set of visualizations for time series analysis. Includes interactive line charts, seasonal heatmaps, and trend decomposition. Ideal for analyzing historical sales, engagement metrics, and future projections with confidence intervals.",
+            "tags": ["time series", "trends", "projections"],
+            "lastUpdated": "2024-03-15",
+            "contentType": "dashboard",
+            "used": 1250,
+            "pagesNumber": 8
+        },
+        {
+            "title": "Geographic Dashboards",
+            "description": "Interactive maps and regional analysis",
+            "longDescription": "Dashboards focused on geographic analysis, featuring heat maps, choropleth maps, and flow visualizations between regions. Perfect for analyzing regional sales distribution, logistics, and market expansion.",
+            "tags": ["maps", "geography", "regional"],
+            "lastUpdated": "2024-03-14",
+            "contentType": "dashboard",
+            "used": 890,
+            "pagesNumber": 6
+        },
+        {
+            "title": "Correlation Analysis",
+            "description": "Visualizations of relationships between variables",
+            "longDescription": "Set of visualizations to explore and communicate correlations between different business metrics. Includes correlation matrices, interactive scatter plots, and regression analysis with automated insights.",
+            "tags": ["correlation", "statistics", "insights"],
+            "lastUpdated": "2024-03-13",
+            "contentType": "analysis",
+            "used": 670,
+            "pagesNumber": 12
+        },
+        {
+            "title": "Market Share Analysis",
+            "description": "Competitive market visualization tools",
+            "longDescription": "Advanced visualization suite for market share analysis, including treemaps, bubble charts, and competitive positioning matrices. Essential for understanding market dynamics and competitive landscape.",
+            "tags": ["market", "competition", "analysis"],
+            "lastUpdated": "2024-03-12",
+            "contentType": "analysis",
+            "used": 520,
+            "pagesNumber": 10
+        },
+        {
+            "title": "Performance Metrics Dashboard",
+            "description": "Real-time performance tracking",
+            "longDescription": "Real-time dashboard for tracking key performance indicators across multiple dimensions. Features dynamic updates, threshold alerts, and trend indicators for proactive monitoring.",
+            "tags": ["performance", "metrics", "real-time"],
+            "lastUpdated": "2024-03-11",
+            "contentType": "dashboard",
+            "used": 980,
+            "pagesNumber": 15
+        }
+    ],
+    "featuredCards": [
+        {
+            "title": "Sales Dashboard",
+            "description": "Complete visualization of sales metrics",
+            "longDescription": "This dashboard provides a comprehensive view of company sales metrics. Includes detailed performance analysis by region, product, and team, as well as temporal trends and forecasts based on historical data. Ideal for strategic decision making and commercial KPI tracking.",
+            "tags": ["dashboard", "sales", "metrics"],
+            "lastUpdated": "2024-03-15",
+            "used": 2500,
+            "contentType": "dashboard",
+            "pagesNumber": 15
+        },
+        {
+            "title": "Customer Analysis",
+            "description": "Customer profile segmentation and analysis",
+            "longDescription": "An in-depth analysis of our customer profile, including demographic, behavioral, and value-based segmentation. This report presents insights on purchase patterns, lifetime value, and cross-selling opportunities, essential for personalized marketing and sales strategies.",
+            "tags": ["customers", "analysis", "segmentation"],
+            "lastUpdated": "2024-03-14",
+            "used": 1800,
+            "contentType": "analysis",
+            "pagesNumber": 12
+        },
+        {
+            "title": "Demand Forecast",
+            "description": "Predictive model for inventory and sales",
+            "longDescription": "Using advanced machine learning techniques, this predictive model provides accurate demand projections for inventory optimization and sales planning. Includes seasonal analysis, external event impact, and market trends for greater forecast accuracy.",
+            "tags": ["forecast", "inventory", "ml"],
+            "lastUpdated": "2024-03-13",
+            "used": 950,
+            "contentType": "model",
+            "pagesNumber": 8
+        },
+        {
+            "title": "Marketing ROI Analysis",
+            "description": "Marketing campaign performance tracking",
+            "longDescription": "Comprehensive analysis of marketing campaign performance and ROI across all channels. Features attribution modeling, conversion tracking, and budget optimization recommendations.",
+            "tags": ["marketing", "roi", "campaigns"],
+            "lastUpdated": "2024-03-12",
+            "used": 1200,
+            "contentType": "analysis",
+            "pagesNumber": 10
+        },
+        {
+            "title": "Product Performance Matrix",
+            "description": "Product portfolio analysis dashboard",
+            "longDescription": "Interactive dashboard for analyzing product performance across multiple dimensions. Includes profitability analysis, growth trends, and market positioning insights.",
+            "tags": ["products", "portfolio", "performance"],
+            "lastUpdated": "2024-03-11",
+            "used": 1600,
+            "contentType": "dashboard",
+            "pagesNumber": 14
+        }
+    ],
+    "kpiCards": [
+        {
+            "title": "Financial Indicators",
+            "description": "Essential KPIs for financial analysis",
+            "longDescription": "Comprehensive set of financial indicators including profitability, liquidity, debt, and operational efficiency metrics. Presents comparative analysis with industry benchmarks and historical trends.",
+            "tags": ["financial", "metrics", "performance"],
+            "lastUpdated": "2024-03-15",
+            "contentType": "dashboard",
+            "used": 3200,
+            "pagesNumber": 20
+        },
+        {
+            "title": "Marketing Metrics",
+            "description": "Campaign and engagement KPIs",
+            "longDescription": "Complete digital marketing metrics dashboard, including campaign ROI, conversion funnel, social media engagement, and channel analysis. Enables data-driven strategy optimization.",
+            "tags": ["marketing", "campaigns", "conversion"],
+            "lastUpdated": "2024-03-14",
+            "contentType": "dashboard",
+            "used": 2800,
+            "pagesNumber": 18
+        },
+        {
+            "title": "Operational KPIs",
+            "description": "Operational efficiency indicators",
+            "longDescription": "Comprehensive panel of operational indicators focused on efficiency and productivity. Monitors process times, resource utilization, delivery quality, and customer satisfaction. Essential for identifying bottlenecks and continuous improvement opportunities in operational processes.",
+            "tags": ["operations", "efficiency", "productivity"],
+            "lastUpdated": "2024-03-13",
+            "contentType": "indicators",
+            "used": 1500,
+            "pagesNumber": 15
+        },
+        {
+            "title": "Customer Success Metrics",
+            "description": "Customer satisfaction and retention KPIs",
+            "longDescription": "Dashboard focused on customer success metrics including satisfaction scores, retention rates, and engagement levels. Essential for maintaining high customer satisfaction and reducing churn.",
+            "tags": ["customer", "success", "retention"],
+            "lastUpdated": "2024-03-12",
+            "contentType": "dashboard",
+            "used": 2100,
+            "pagesNumber": 16
+        },
+        {
+            "title": "HR Performance Indicators",
+            "description": "Human resources and talent metrics",
+            "longDescription": "Comprehensive HR metrics dashboard tracking employee satisfaction, turnover rates, recruitment efficiency, and training effectiveness. Vital for maintaining a healthy organizational culture.",
+            "tags": ["hr", "talent", "metrics"],
+            "lastUpdated": "2024-03-11",
+            "contentType": "dashboard",
+            "used": 1800,
+            "pagesNumber": 14
+        }
+    ],
+    "layoutCards": [
+        {
+            "title": "Corporate Layout",
+            "description": "Professional template for corporate presentations",
+            "longDescription": "Premium corporate template developed for high-impact executive presentations. Includes over 50 slides with varied layouts, editable charts, and modern design elements. Perfect for annual reports, sales pitches, and stakeholder presentations, maintaining company visual identity.",
+            "tags": ["corporate", "template", "presentation"],
+            "lastUpdated": "2024-03-15",
+            "used": 4500,
+            "contentType": "template",
+            "pagesNumber": 50
+        },
+        {
+            "title": "Minimalist Layout",
+            "description": "Clean and modern design for reports",
+            "longDescription": "Minimalist and elegant design focused on clarity and readability. This template uses carefully selected typography, strategic white space, and a subtle color palette to create professional and sophisticated presentations. Ideal for technical reports and content-focused presentations.",
+            "tags": ["minimalist", "report", "design"],
+            "lastUpdated": "2024-03-14",
+            "used": 3200,
+            "contentType": "template",
+            "pagesNumber": 35
+        },
+        {
+            "title": "Creative Layout",
+            "description": "Dynamic template for creative presentations",
+            "longDescription": "Innovative template with bold designs and interactive elements. Features dynamic transitions, animated infographics, and unconventional layouts to create memorable presentations. Perfect for creative pitches, marketing presentations, and social media content requiring high visual impact.",
+            "tags": ["creative", "dynamic", "innovative"],
+            "lastUpdated": "2024-03-13",
+            "used": 2800,
+            "contentType": "template",
+            "pagesNumber": 40
+        },
+        {
+            "title": "Data Story Layout",
+            "description": "Template optimized for data storytelling",
+            "longDescription": "Specialized template designed for data-driven narratives. Features pre-built sections for insights, visualizations, and key takeaways. Perfect for analytical presentations and research findings.",
+            "tags": ["data", "story", "analytics"],
+            "lastUpdated": "2024-03-12",
+            "used": 2100,
+            "contentType": "template",
+            "pagesNumber": 30
+        },
+        {
+            "title": "Executive Summary Layout",
+            "description": "Concise template for executive briefs",
+            "longDescription": "Streamlined template designed for executive-level communications. Emphasizes key metrics, strategic insights, and action items. Ideal for board meetings and high-level business reviews.",
+            "tags": ["executive", "summary", "brief"],
+            "lastUpdated": "2024-03-11",
+            "used": 3800,
+            "contentType": "template",
+            "pagesNumber": 25
+        }
+    ],
+    "storyboardCards": [
+        {
+            "title": "Customer Journey",
+            "description": "Detailed storyboard of customer experience",
+            "longDescription": "Detailed visualization of the customer journey, from first contact to loyalty. Maps all touchpoints, emotions, needs, and improvement opportunities at each stage. Fundamental for understanding and optimizing customer experience.",
+            "tags": ["journey", "customer", "experience"],
+            "lastUpdated": "2024-03-15",
+            "used": 1800,
+            "contentType": "storyboard",
+            "pagesNumber": 25
+        },
+        {
+            "title": "Sales Flow",
+            "description": "Visualization of the sales process",
+            "longDescription": "Complete mapping of the sales process, from prospecting to closing. Includes decision points, team responsibilities, system integrations, and tracking metrics at each stage. Essential for training and optimizing the commercial process.",
+            "tags": ["sales", "process", "flow"],
+            "lastUpdated": "2024-03-14",
+            "used": 2200,
+            "contentType": "flowchart",
+            "pagesNumber": 15
+        },
+        {
+            "title": "User Onboarding",
+            "description": "Storyboard of the onboarding process",
+            "longDescription": "Step-by-step visualization of the new user onboarding process. Details each interaction, necessary support materials, and success checkpoints. Ideal for ensuring a consistent and effective integration experience.",
+            "tags": ["onboarding", "users", "process"],
+            "lastUpdated": "2024-03-13",
+            "used": 1500,
+            "contentType": "storyboard",
+            "pagesNumber": 20
+        },
+        {
+            "title": "Product Development Flow",
+            "description": "Product lifecycle visualization",
+            "longDescription": "Comprehensive visualization of the product development lifecycle. Maps ideation, design, development, testing, and launch phases with key stakeholders and deliverables.",
+            "tags": ["product", "development", "lifecycle"],
+            "lastUpdated": "2024-03-12",
+            "used": 1900,
+            "contentType": "flowchart",
+            "pagesNumber": 18
+        },
+        {
+            "title": "Change Management Process",
+            "description": "Organizational change visualization",
+            "longDescription": "Strategic visualization of organizational change management processes. Includes stakeholder mapping, communication plans, and implementation milestones.",
+            "tags": ["change", "management", "process"],
+            "lastUpdated": "2024-03-11",
+            "used": 1600,
+            "contentType": "storyboard",
+            "pagesNumber": 22
+        }
+    ],
+    "trendingCards": [
+        {
+            "title": "Sales Dashboard",
+            "description": "Overview of sales metrics",
+            "longDescription": "Complete dashboard with detailed sales analysis, including performance metrics, temporal trends, product analysis, and customer segmentation. Provides actionable insights for sales optimization and growth opportunity identification.",
+            "tags": ["sales", "metrics", "dashboard"],
+            "lastUpdated": "2024-03-15",
+            "contentType": "dashboard",
+            "used": 5500,
+            "pagesNumber": 30
+        },
+        {
+            "title": "Customer Analysis",
+            "description": "Customer segmentation and behavior",
+            "longDescription": "In-depth analysis of customer behavior and profile, including value segmentation, purchase frequency, and preferences. Enables identification of consumption patterns, cross-selling opportunities, and personalized retention strategies.",
+            "tags": ["customers", "segmentation", "behavior"],
+            "lastUpdated": "2024-03-14",
+            "contentType": "analysis",
+            "used": 4800,
+            "pagesNumber": 25
+        },
+        {
+            "title": "Market Trends Report",
+            "description": "Industry and market analysis",
+            "longDescription": "Comprehensive analysis of current market trends, competitive landscape, and emerging opportunities. Features industry benchmarks and strategic recommendations.",
+            "tags": ["market", "trends", "analysis"],
+            "lastUpdated": "2024-03-13",
+            "contentType": "report",
+            "used": 4200,
+            "pagesNumber": 28
+        },
+        {
+            "title": "Digital Transformation Strategy",
+            "description": "Technology adoption roadmap",
+            "longDescription": "Strategic framework for digital transformation initiatives. Includes technology assessment, implementation timeline, and success metrics.",
+            "tags": ["digital", "transformation", "strategy"],
+            "lastUpdated": "2024-03-12",
+            "contentType": "strategy",
+            "used": 3900,
+            "pagesNumber": 35
+        },
+        {
+            "title": "Sustainability Report",
+            "description": "Environmental impact analysis",
+            "longDescription": "Detailed report on environmental sustainability initiatives and impacts. Includes carbon footprint analysis, resource utilization, and improvement recommendations.",
+            "tags": ["sustainability", "environment", "impact"],
+            "lastUpdated": "2024-03-11",
+            "contentType": "report",
+            "used": 4100,
+            "pagesNumber": 32
+        }
+    ],
+    "kpiQuestions": [
+        {
+            "id": 1,
+            "question": "What is the current conversion rate compared to the same period last year?"
+        },
+        {
+            "id": 2,
+            "question": "What are the main factors impacting customer churn rate?"
+        },
+        {
+            "id": 3,
+            "question": "How does the average ticket vary across different customer segments?"
+        },
+        {
+            "id": 4,
+            "question": "What is the ROI of marketing campaigns by acquisition channel?"
+        },
+        {
+            "id": 5,
+            "question": "What is the employee satisfaction trend over the last 12 months?"
+        },
+        {
+            "id": 6,
+            "question": "How does our product adoption rate compare to industry benchmarks?"
+        },
+        {
+            "id": 7,
+            "question": "What is the impact of pricing changes on customer retention?"
+        },
+        {
+            "id": 8,
+            "question": "How effective are our customer support channels in resolving issues?"
+        }
+    ]
+} 
